@@ -1,0 +1,27 @@
+{% extends "home/common.html" %}
+
+{% block content %}
+    <h1 class="mb-3">Content by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    {% for post in posts %}
+        
+        <h2><a href="{% url 'content-detail' post.id %}">{{ post.title }}</a></h2>
+        <a href="{% url 'user-content' post.author.username %}">-{{ post.author }}</a>
+        <p> {{ post.body }}</p>
+        
+    {% endfor %}
+
+    {% if is_paginated %}
+    	{% if page_obj.has_previous %}
+    		<a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.previous_page_number }}">Previous</a>
+    	{% endif %}
+		
+		{% if page_obj.has_next %}
+    		<a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.next_page_number }}">Next</a>
+    	{% endif %}
+
+
+    {% endif%}
+{% endblock %}
+
+
+

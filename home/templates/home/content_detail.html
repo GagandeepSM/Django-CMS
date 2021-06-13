@@ -1,0 +1,20 @@
+{% extends "home/common.html" %}
+
+{% block content %}
+	<h1> {{object.title}} </h1>
+	<p>
+    <a href="{% url 'user-content' object.author.username %}">-{{ post.author }}</a>
+	by {{object.author}}</p>
+	{% if object.author == user %}
+		<button class="btn btn-outline-success">
+			<a href="{% url 'content-update' object.id %}">Update</a>	
+		</button>
+		<button type="button" class="btn btn-outline-danger" >
+			<a href="{% url 'content-delete' object.id %}">Delete</a>	
+		</button>
+
+		
+	{% endif %}
+	<p>  {{object.body}} </p>
+	<p>  {{object.summary}} </p>
+{% endblock %}

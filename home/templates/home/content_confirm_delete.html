@@ -1,0 +1,14 @@
+{% extends "home/common.html" %}
+
+{% block content %}
+	<div>
+		<form method="POST">
+			{% csrf_token %}
+			<legend>Delete Post</legend>
+			<h3>Are you sure you want to delete? {{object.title}}</h3>
+			<button type="submit" class="btn btn-outline-danger">Delete</button>
+		</form>
+	</div>
+{% endblock %}
+
+	
