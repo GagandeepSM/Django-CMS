@@ -1,9 +1,6 @@
 # Ajackus-Django-CMS
  
 clone the project
-```
-git clone https://github.com/erinallard/instagram_miner.git 
-```
 
 create and start a a virtual environment
 ```
